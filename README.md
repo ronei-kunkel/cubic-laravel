@@ -121,11 +121,11 @@ APP_URL=http://cubic.test
 ```
 
 ```properties
-DB_CONNECTION=0.0.0.0
+DB_CONNECTION=mysql
 ```
 
 ```properties
-DB_HOST=mysql
+DB_HOST=0.0.0.0
 ```
 
 ```properties
