@@ -17,9 +17,9 @@ class CreateApartamentoTable extends Migration
             $table->id()->unsigned();
             $table->string('numero');
             $table->string('andar');
-            // $table->string('quantidade_comodo');
-            // $table->string('quantidade_movel');
-            // $table->string('metro_quadrado');
+            $table->string('quantidade_comodo');
+            $table->string('quantidade_movel');
+            $table->string('metro_quadrado');
             $table->unsignedBigInteger('construcao_id');
             $table->timestamps();
             $table->index('id', 'id');
