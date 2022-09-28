@@ -17,10 +17,13 @@ class CreateRuaInternaTable extends Migration
             $table->id()->unsigned();
             $table->string('nome');
             $table->unsignedBigInteger('condominio_id');
+            $table->unsignedBigInteger('status_id');
             $table->timestamps();
             $table->index('id', 'id');
             $table->index('condominio_id', 'condominio_id');
             $table->foreign('condominio_id')->references('id')->on('condominio');
+            $table->index('status_id', 'status_id');
+            $table->foreign('status_id')->references('id')->on('status');
         });
     }
 

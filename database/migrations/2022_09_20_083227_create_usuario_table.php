@@ -16,8 +16,10 @@ class CreateUsuarioTable extends Migration
         Schema::create('usuario', function (Blueprint $table) {
             $table->id()->unsigned();
             $table->string('nome');
-            $table->string('cpf')->unique();
-            $table->string('rg')->unique();
+            $table->string('cpf', 11)->unique();
+            $table->string('rg', 10)->unique();
+            $table->string('email', 200)->unique();
+            $table->string('telefone', 200)->unique();
             $table->string('senha');
             $table->string('cep')->nullable();
             $table->string('estado')->nullable();

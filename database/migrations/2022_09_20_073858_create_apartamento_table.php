@@ -21,10 +21,13 @@ class CreateApartamentoTable extends Migration
             $table->string('quantidade_movel');
             $table->string('metro_quadrado');
             $table->unsignedBigInteger('construcao_id');
+            $table->unsignedBigInteger('status_id');
             $table->timestamps();
             $table->index('id', 'id');
             $table->index('construcao_id', 'construcao_id');
             $table->foreign('construcao_id')->references('id')->on('construcao');
+            $table->index('status_id', 'status_id');
+            $table->foreign('status_id')->references('id')->on('status');
         });
     }
 
