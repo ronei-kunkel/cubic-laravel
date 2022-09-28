@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsuarioFuncaoTable extends Migration
+class CreateFuncaoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateUsuarioFuncaoTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuario_funcao', function (Blueprint $table) {
+        Schema::create('funcao', function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->enum('nome', ['morador', 'dono', 'zelador', 'síndico', 'terceirizado', 'administrador']);
+            $table->string('nome'); // ['morador', 'dono', 'zelador', 'sindico', 'terceirizado', 'administrador']
             $table->timestamps();
             $table->index('id', 'id');
         });
@@ -28,6 +28,6 @@ class CreateUsuarioFuncaoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuario_funcao');
+        Schema::dropIfExists('funcao');
     }
 }

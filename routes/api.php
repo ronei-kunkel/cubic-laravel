@@ -18,6 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', function (Request $request) {
-    return response()->json('{"status": "funcional"}');
+Route::get('/ping', function () {
+    return response()->json(["status"=>"ok"]);
 });

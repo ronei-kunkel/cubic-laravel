@@ -21,12 +21,15 @@ class CreateConstrucaoTable extends Migration
             $table->integer('quantidade_andar')->unsigned();
             $table->unsignedBigInteger('rua_interna_id');
             $table->unsignedBigInteger('condominio_id');
+            $table->unsignedBigInteger('status_id');
             $table->timestamps();
             $table->index('id', 'id');
             $table->index('rua_interna_id', 'rua_interna_id');
             $table->foreign('rua_interna_id')->references('id')->on('rua_interna');
             $table->index('condominio_id', 'condominio_id');
             $table->foreign('condominio_id')->references('id')->on('condominio');
+            $table->index('status_id', 'status_id');
+            $table->foreign('status_id')->references('id')->on('status');
         });
     }
 
