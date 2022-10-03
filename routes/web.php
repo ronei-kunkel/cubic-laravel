@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AccessController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,3 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * O método resource permite que eu use a convenção de mapeamento de rotas para actions do laravel
+ */
+Route::resource('usuario', UsuarioController::class);
