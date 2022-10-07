@@ -10,13 +10,23 @@ class UsuarioController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $usuarios = Usuario::all();
 
-        return view('usuario.index', compact('usuarios'))->with('title', 'Usuários');
+        $mensagemSucesso = session('mensagem.sucesso');
+        $alertClass = !is_null($mensagemSucesso) ? 'success' : 'hidden' ;
+
+        return view('module.usuario.index')
+            ->with([
+                'usuarios'          => $usuarios,
+                'titulo'            => 'Usuários',
+                'mensagemSucesso'   => $mensagemSucesso,
+                'alertClass'        => $alertClass
+            ]);
     }
 
     /**
@@ -26,7 +36,10 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuario.create')->with('title', 'Novo usuário');
+        return view('module.usuario.create')
+            ->with([
+                'titulo' => 'Novo usuário'
+            ]);
     }
 
     /**
@@ -37,9 +50,13 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        Usuario::create($request->all());
+        $usuario = Usuario::create($request->all());
 
-        return redirect('/usuario');
+        return redirect()
+            ->route('usuario.index')
+            ->with([
+                'mensagem.sucesso' => 'Usuário '.$usuario->nome.' cadastrado com sucesso'
+            ]);
     }
 
     /**
@@ -59,31 +76,48 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Usuario $usuario)
     {
-        //
+        return view('module.usuario.edit')
+            ->with([
+                'titulo' => 'Editar informações de usuário',
+                'usuario' => $usuario
+            ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
+     * @param  \App\Models\Usuario       $usuario
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Usuario $usuario, Request $request)
     {
-        //
+        $usuario->fill($request->all());
+        $usuario->save();
+
+        return redirect()
+            ->route('usuario.index')
+            ->with([
+                'mensagem.sucesso' => 'Usuario '.$usuario->nome.' atualizado com sucesso'
+            ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Usuario       $usuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Usuario $usuario)
     {
-        //
+        $usuario->delete();
+
+        return redirect()
+            ->route('usuario.index')
+            ->with([
+                'mensagem.sucesso' => 'Usuário '.$usuario->nome.' removido com sucesso'
+            ]);
     }
 }
