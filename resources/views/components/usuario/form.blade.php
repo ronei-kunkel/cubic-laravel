@@ -1,157 +1,152 @@
-<form action="{{ $action }}" method="post">
+<form action="{{ $action }}" method="POST">
 
   @csrf
 
-  @isset($usuario)
-    @method('PUT')
-    @php
-        $usuario = json_decode($usuario)
-    @endphp
-  @endisset
+  @method($method)
 
   <div class="mt-4 mb-2">
-    <label class="form-label" for="senha">Nome Completo</label>
     <input
       class="form-control"
       type="text"
       name="nome"
       id="nome"
       value="{{ $usuario->nome ?? '' }}"
+      placeholder="Nome completo"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="rg">Número de identidade</label>
     <input
       class="form-control"
       type="text"
       name="rg"
       id="rg"
       value="{{ $usuario->rg ?? '' }}"
+      placeholder="RG: xx.xxx.xxx-xx"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="cpf">CPF</label>
     <input
       class="form-control"
       type="text"
       name="cpf"
       id="cpf"
       value="{{ $usuario->cpf ?? '' }}"
+      placeholder="CPF: xxx.xxx.xxx-xx"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="email">E-mail</label>
     <input
       class="form-control"
       type="email"
       name="email"
       id="email"
       value="{{ $usuario->email ?? '' }}"
+      placeholder="Email: email@exemplo.com"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="telefone">Número de telefone</label>
     <input
       class="form-control"
       type="tel"
       name="telefone"
       id="telefone"
       value="{{ $usuario->telefone ?? '' }}"
+      placeholder="Celular: (xx) 9 xxxx-xxxx"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="senha">Senha</label>
     <input
       class="form-control"
       type="password"
       name="senha"
       id="senha"
       value="{{ $usuario->senha ?? '' }}"
+      placeholder="Senha"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="confirmacaoSenha">Confirmação de senha</label>
     <input
       class="form-control"
       type="password"
       name="confirmacaoSenha"
       id="confirmacaoSenha"
       value="{{ $usuario->senha ?? '' }}"
+      placeholder="Confirmação de senha"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="cep">CEP</label>
     <input
       class="form-control"
       type="text"
       name="cep"
       id="cep"
-      value="{{ $usuario->senha ?? '' }}"
+      value="{{ $usuario->cep ?? '' }}"
+    placeholder="CEP: xxxx-xxx"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="estado">Estado</label>
     <input
       class="form-control"
       type="text"
       name="estado"
       id="estado"
       value="{{ $usuario->estado ?? '' }}"
+      placeholder="Estado: XX"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="cidade">Cidade</label>
     <input
       class="form-control"
       type="text"
       name="cidade"
       id="cidade"
       value="{{ $usuario->cidade ?? '' }}"
+      placeholder="Cidade"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="bairro">Bairro</label>
     <input
       class="form-control"
       type="text"
       name="bairro"
       id="bairro"
       value="{{ $usuario->bairro ?? '' }}"
+      placeholder="Bairro"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="rua">Rua</label>
     <input
       class="form-control"
       type="text"
       name="rua"
       id="rua"
       value="{{ $usuario->rua ?? '' }}"
+      placeholder="Rua"
     >
   </div>
 
   <div class="mb-2">
-    <label class="form-label" for="numero">Número de endereço</label>
     <input
       class="form-control"
       type="text"
       name="numero"
       id="numero"
       value="{{ $usuario->numero ?? '' }}"
+      placeholder="Número da rua"
     >
   </div>
 
-  <button type="submit" class="btn btn-primary">{{ empty($usuario) ? 'Cadastrar' : 'Atualizar' }}</button>
+  <button type="submit" class="btn btn-primary">{{ $buttonText }}</button>
 
 </form>

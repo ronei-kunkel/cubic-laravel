@@ -10,10 +10,9 @@ class UsuarioController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $usuarios = Usuario::all();
 
@@ -38,7 +37,9 @@ class UsuarioController extends Controller
     {
         return view('module.usuario.create')
             ->with([
-                'titulo' => 'Novo usuário'
+                'titulo'     => 'Novo usuário',
+                'buttonText' => 'Cadastrar',
+                'method'     => 'POST'
             ]);
     }
 
@@ -73,15 +74,17 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
     public function edit(Usuario $usuario)
     {
         return view('module.usuario.edit')
             ->with([
-                'titulo' => 'Editar informações de usuário',
-                'usuario' => $usuario
+                'titulo'     => 'Editar informações de usuário',
+                'usuario'    => json_decode($usuario),
+                'buttonText' => 'Atualizar',
+                'method'     => 'PUT'
             ]);
     }
 
