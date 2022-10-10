@@ -4,7 +4,8 @@
 
   @method($method)
 
-  <div class="mt-4 mb-2">
+  <div class="mt-4 mb-2 d-flex">
+    <label class="form-label col-2" for="nome">Nome completo</label>
     <input
       class="form-control"
       type="text"
@@ -15,51 +16,56 @@
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="rg">RG</label>
     <input
       class="form-control"
       type="text"
       name="rg"
       id="rg"
       value="{{ $usuario->rg ?? '' }}"
-      placeholder="RG: xx.xxx.xxx-xx"
+      placeholder="xx.xxx.xxx-xx"
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="cpf">CPF</label>
     <input
       class="form-control"
       type="text"
       name="cpf"
       id="cpf"
       value="{{ $usuario->cpf ?? '' }}"
-      placeholder="CPF: xxx.xxx.xxx-xx"
+      placeholder="xxx.xxx.xxx-xx"
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="email">Email</label>
     <input
       class="form-control"
       type="email"
       name="email"
       id="email"
       value="{{ $usuario->email ?? '' }}"
-      placeholder="Email: email@exemplo.com"
+      placeholder="email@exemplo.com"
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="telefone">Número de celular</label>
     <input
       class="form-control"
       type="tel"
       name="telefone"
       id="telefone"
       value="{{ $usuario->telefone ?? '' }}"
-      placeholder="Celular: (xx) 9 xxxx-xxxx"
+      placeholder="(xx) 9 xxxx-xxxx"
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="senha">Senha</label>
     <input
       class="form-control"
       type="password"
@@ -70,7 +76,8 @@
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="confirmacaoSenha">Confirmação de senha</label>
     <input
       class="form-control"
       type="password"
@@ -81,29 +88,32 @@
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="cep">CEP</label>
     <input
       class="form-control"
       type="text"
       name="cep"
       id="cep"
       value="{{ $usuario->cep ?? '' }}"
-    placeholder="CEP: xxxx-xxx"
+    placeholder="xxxxx-xxx"
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="estado">Estado</label>
     <input
       class="form-control"
       type="text"
       name="estado"
       id="estado"
       value="{{ $usuario->estado ?? '' }}"
-      placeholder="Estado: XX"
+      placeholder="XX"
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="cidade">Cidade</label>
     <input
       class="form-control"
       type="text"
@@ -114,7 +124,8 @@
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="bairro">Bairro</label>
     <input
       class="form-control"
       type="text"
@@ -125,7 +136,8 @@
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="rua">Rua</label>
     <input
       class="form-control"
       type="text"
@@ -136,14 +148,15 @@
     >
   </div>
 
-  <div class="mb-2">
+  <div class="mb-2 d-flex">
+    <label class="form-label col-2" for="numero">Número do endereço</label> 
     <input
       class="form-control"
       type="text"
       name="numero"
       id="numero"
       value="{{ $usuario->numero ?? '' }}"
-      placeholder="Número da rua"
+      placeholder="Número do endereço"
     >
   </div>
 

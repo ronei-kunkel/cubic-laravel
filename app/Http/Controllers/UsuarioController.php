@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
-use Illuminate\Http\Request;
+use App\Http\Requests\UsuarioFormRequest;
 
 class UsuarioController extends Controller
 {
@@ -46,10 +46,10 @@ class UsuarioController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UsuarioFormRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuarioFormRequest $request)
     {
         $usuario = Usuario::create($request->all());
 
@@ -92,10 +92,10 @@ class UsuarioController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Models\Usuario       $usuario
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UsuarioFormRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Usuario $usuario, Request $request)
+    public function update(Usuario $usuario, UsuarioFormRequest $request)
     {
         $usuario->fill($request->all());
         $usuario->save();
