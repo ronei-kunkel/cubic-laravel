@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/ping', function () {
-    return response()->json(["status"=>"ok"]);
+    return response()->json(["message"=>"pong"]);
 });
