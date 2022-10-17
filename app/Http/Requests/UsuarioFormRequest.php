@@ -65,41 +65,7 @@ class UsuarioFormRequest extends FormRequest
                 'max:8',
                 'required_with:senha',
                 'same:senha'
-            ],
-            'cep' => [
-                'nullable',
-                'numeric',
-                'digits:7',
-            ],
-            'estado' => [
-                'nullable',
-                'string',
-                'min:2',
-                'max:2',
-                'required_with:cep'
-            ],
-            'cidade' => [
-                'nullable',
-                'string',
-                'min:2',
-                'required_with:cep'
-            ],
-            'bairro' => [
-                'nullable',
-                'string',
-                'min:2',
-                'required_with:cep'
-            ],
-            'rua' => [
-                'nullable',
-                'min:1',
-                'required_with:cep'
-            ],
-            'numero' => [
-                'nullable',
-                'min:1',
-                'required_with:cep'
-            ],
+            ]
         ];
     }
 }
