@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuario;
-use App\Http\Requests\UsuarioFormRequest;
+use App\Models\Rua;
+use App\Http\Requests\RuaFormRequest;
 
-class UsuarioController extends Controller
+
+class RuaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +15,15 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::all();
+        $ruas = Rua::all();
 
         $mensagemSucesso = session('mensagem.sucesso');
         $alertClass = !is_null($mensagemSucesso) ? 'success' : 'hidden' ;
 
-        return view('module.usuario.index')
+        return view('module.rua.index')
             ->with([
-                'usuarios'          => $usuarios,
-                'titulo'            => 'Usuários',
+                'ruas'              => $ruas,
+                'titulo'            => 'Ruas',
                 'mensagemSucesso'   => $mensagemSucesso,
                 'alertClass'        => $alertClass
             ]);
@@ -35,9 +36,9 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('module.usuario.create')
+        return view('module.rua.create')
             ->with([
-                'titulo'     => 'Novo usuário',
+                'titulo'     => 'Nova rua',
                 'buttonText' => 'Cadastrar',
                 'method'     => 'POST'
             ]);
@@ -46,17 +47,17 @@ class UsuarioController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\UsuarioFormRequest  $request
+     * @param  \App\Http\Requests\RuaFormRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UsuarioFormRequest $request)
+    public function store(RuaFormRequest $request)
     {
-        $usuario = Usuario::create($request->validated());
+        $rua = Rua::create($request->validated());
 
         return redirect()
-            ->route('usuario.index')
+            ->route('rua.index')
             ->with([
-                'mensagem.sucesso' => 'Usuário '.$usuario->nome.' cadastrado com sucesso'
+                'mensagem.sucesso' => 'Rua '.$rua->nome.' adicionada com sucesso'
             ]);
     }
 
@@ -74,15 +75,15 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\Rua           $rua
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usuario $usuario)
+    public function edit(Rua $rua)
     {
-        return view('module.usuario.edit')
+        return view('module.rua.edit')
             ->with([
-                'titulo'     => 'Editar informações de usuário',
-                'usuario'    => json_decode($usuario),
+                'titulo'     => 'Editar informações da rua',
+                'rua'        => json_decode($rua),
                 'buttonText' => 'Atualizar',
                 'method'     => 'PUT'
             ]);
@@ -91,36 +92,36 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Models\Usuario       $usuario
-     * @param  \App\Http\Requests\UsuarioFormRequest  $request
+     * @param  \App\Models\Rua       $rua
+     * @param  \App\Http\Requests\RuaFormRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Usuario $usuario, UsuarioFormRequest $request)
+    public function update(Rua $rua, RuaFormRequest $request)
     {
-        $usuario->fill($request->validated());
-        $usuario->save();
+        $rua->fill($request->validated());
+        $rua->save();
 
         return redirect()
-            ->route('usuario.index')
+            ->route('rua.index')
             ->with([
-                'mensagem.sucesso' => 'Usuario '.$usuario->nome.' atualizado com sucesso'
+                'mensagem.sucesso' => 'Rua '.$rua->nome.' atualizada com sucesso'
             ]);
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Usuario       $usuario
+     * 
+     * @param  \App\Models\Rua       $rua
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(Rua $rua)
     {
-        $usuario->delete();
+        $rua->delete();
 
         return redirect()
-            ->route('usuario.index')
+            ->route('rua.index')
             ->with([
-                'mensagem.sucesso' => 'Usuário '.$usuario->nome.' removido com sucesso'
+                'mensagem.sucesso' => 'Rua '.$rua->nome.' removida com sucesso'
             ]);
     }
 }

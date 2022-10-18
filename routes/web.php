@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\FuncaoController;
+use App\Http\Controllers\RuaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +24,6 @@ Route::resource('usuario', UsuarioController::class)
 
 Route::resource('funcao', FuncaoController::class)
   ->except(['show']);
-  
+
+Route::resource('rua', RuaController::class)
+  ->except(['show']);

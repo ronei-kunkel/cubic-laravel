@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FuncaoFormRequest extends FormRequest
+class RuaFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +27,13 @@ class FuncaoFormRequest extends FormRequest
             'nome' => [
                 'required',
                 'string',
-                'min:3'
+                'min:1'
                 ],
+            'condominio_id' => [
+                'required',
+                'numeric',
+                'min:1'
+            ]
         ];
     }
 }

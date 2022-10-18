@@ -42,4 +42,14 @@ class Construcao extends Model
     {
         return $this->hasMany(Usuario::class);
     }
+
+    /**
+     * Rua em que está a construção
+     *
+     * @return void
+     */
+    public function rua()
+    {
+        return $this->belongsTo(Rua::class);
+    }
 }

@@ -5,13 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RuaInterna extends Model
+class Rua extends Model
 {
     use HasFactory;
 
-    protected $table = 'rua_interna';
+    protected $table = 'rua';
 
     public $timestamps = false;
+
+    protected $fillable = [
+        'nome',
+        'condominio_id'
+    ];
 
     /**
      * Condominio que essa rua está
