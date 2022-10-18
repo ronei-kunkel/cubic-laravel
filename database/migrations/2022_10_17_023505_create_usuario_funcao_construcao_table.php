@@ -1,11 +1,13 @@
 <?php
 
 use App\Models\Construcao;
+use App\Models\Funcao;
+use App\Models\Usuario;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateApartamentoTable extends Migration
+class CreateUsuarioFuncaoConstrucaoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +16,9 @@ class CreateApartamentoTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartamento', function (Blueprint $table) {
-            $table->id()->unsigned();
-            $table->string('numero');
-            $table->string('andar');
+        Schema::create('usuario_funcao_construcao', function (Blueprint $table) {
+            $table->foreignIdFor(Usuario::class)->constrained('usuario')->default(0);
+            $table->foreignIdFor(Funcao::class)->constrained('funcao')->default(0);
             $table->foreignIdFor(Construcao::class)->constrained('construcao')->default(0);
         });
     }
@@ -29,6 +30,6 @@ class CreateApartamentoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartamento');
+        Schema::dropIfExists('usuario_funcao_construcao');
     }
 }

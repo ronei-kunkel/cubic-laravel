@@ -11,6 +11,12 @@ class Funcao extends Model
 
     protected $table = 'funcao';
 
+    public $timestamps = false;
+
+    protected $fillable = [
+        'nome'
+    ];
+
     /**
      * Usuários que possuem a função
      *

@@ -1,6 +1,6 @@
 <x-layout :title="$titulo">
 
-  <x-usuario.menu />
+  <x-module.usuario.menu />
 
   @php
     $id = $usuario->id;
@@ -8,7 +8,7 @@
     $usuario->id = $id;
   @endphp
 
-  <x-usuario.form
+  <x-module.usuario.form
     :action="route('usuario.update', $usuario->id)"
     :usuario="$usuario"
     :buttonText="$buttonText"

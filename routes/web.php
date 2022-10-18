@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\FuncaoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::resource('usuario', UsuarioController::class)
   ->except(['show']);
+
+Route::resource('funcao', FuncaoController::class)
+  ->except(['show']);
+  

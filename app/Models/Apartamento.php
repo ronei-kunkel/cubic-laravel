@@ -11,6 +11,8 @@ class Apartamento extends Model
 
     protected $table = 'apartamento';
 
+    public $timestamps = false;
+
     /**
      * Construção em que está o apartamento
      *

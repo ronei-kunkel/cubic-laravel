@@ -11,6 +11,8 @@ class RuaInterna extends Model
 
     protected $table = 'rua_interna';
 
+    public $timestamps = false;
+
     /**
      * Condominio que essa rua está
      *

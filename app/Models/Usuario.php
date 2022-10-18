@@ -11,6 +11,8 @@ class Usuario extends Model
 
     protected $table = 'usuario';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'nome',
         'cpf',
@@ -58,15 +60,5 @@ class Usuario extends Model
     public function apartamento()
     {
         return $this->belongsToMany(Apartamento::class);
-    }
-
-    /**
-     * Interações que o usuário já fez
-     *
-     * @return void
-     */
-    public function interacao()
-    {
-        $this->hasMany(Interacao::class);
     }
 }

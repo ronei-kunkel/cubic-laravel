@@ -11,6 +11,8 @@ class Condominio extends Model
 
     protected $table = 'condominio';
 
+    public $timestamps = false;
+
     /**
      * Construções que o condomínio possui
      *
