@@ -21,7 +21,7 @@ class FuncaoController extends Controller
 
         return view('module.funcao.index')
             ->with([
-                'funcoes'          => $funcoes,
+                'funcoes'           => $funcoes,
                 'titulo'            => 'Funções',
                 'mensagemSucesso'   => $mensagemSucesso,
                 'alertClass'        => $alertClass
@@ -51,7 +51,7 @@ class FuncaoController extends Controller
      */
     public function store(FuncaoFormRequest $request)
     {
-        $funcao = Funcao::create($request->all());
+        $funcao = Funcao::create($request->validated());
 
         return redirect()
             ->route('funcao.index')
@@ -82,7 +82,7 @@ class FuncaoController extends Controller
         return view('module.funcao.edit')
             ->with([
                 'titulo'     => 'Editar informações da função',
-                'funcao'    => json_decode($funcao),
+                'funcao'     => json_decode($funcao),
                 'buttonText' => 'Atualizar',
                 'method'     => 'PUT'
             ]);
@@ -97,13 +97,13 @@ class FuncaoController extends Controller
      */
     public function update(Funcao $funcao, FuncaoFormRequest $request)
     {
-        $funcao->fill($request->all());
+        $funcao->fill($request->validated());
         $funcao->save();
 
         return redirect()
             ->route('funcao.index')
             ->with([
-                'mensagem.sucesso' => 'Funcao '.$funcao->nome.' atualizada com sucesso'
+                'mensagem.sucesso' => 'Função '.$funcao->nome.' atualizada com sucesso'
             ]);
     }
 

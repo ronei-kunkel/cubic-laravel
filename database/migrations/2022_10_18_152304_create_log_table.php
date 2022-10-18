@@ -1,11 +1,10 @@
 <?php
 
-use App\Models\Condominio;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRuaInternaTable extends Migration
+class CreateLogTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +13,9 @@ class CreateRuaInternaTable extends Migration
      */
     public function up()
     {
-        Schema::create('rua_interna', function (Blueprint $table) {
-            $table->id()->unsigned();
-            $table->string('nome');
-            $table->foreignIdFor(Condominio::class)->constrained('condominio')->default(0);
+        Schema::create('log', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -28,6 +26,6 @@ class CreateRuaInternaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rua_interna');
+        Schema::dropIfExists('log');
     }
 }

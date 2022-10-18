@@ -14,6 +14,16 @@ class Condominio extends Model
     public $timestamps = false;
 
     /**
+     * Ruas que o condominio possui
+     *
+     * @return void
+     */
+    public function rua()
+    {
+        return $this->hasMany(Rua::class);
+    }
+
+    /**
      * Construções que o condomínio possui
      *
      * @return void
