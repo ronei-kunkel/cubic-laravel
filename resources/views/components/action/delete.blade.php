@@ -1,5 +1,5 @@
 <form action="{{ $action }}" method="post">
   @csrf
   @method('DELETE')
-  <x-button.close/>
+  <x-action.button.close/>
 </form>

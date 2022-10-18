@@ -23,11 +23,6 @@ class CreateCondominioTable extends Migration
             $table->string('rua');
             $table->string('numero');
             $table->string('complemento')->nullable();
-            $table->unsignedBigInteger('status_id');
-            $table->timestamps();
-            $table->index('id', 'id');
-            $table->index('status_id', 'status_id');
-            $table->foreign('status_id')->references('id')->on('status');
         });
     }
 

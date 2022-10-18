@@ -21,14 +21,6 @@ class CreateUsuarioTable extends Migration
             $table->string('email', 200)->unique();
             $table->string('telefone', 200)->unique();
             $table->string('senha');
-            $table->string('cep')->nullable();
-            $table->string('estado')->nullable();
-            $table->string('cidade')->nullable();
-            $table->string('bairro')->nullable();
-            $table->string('rua')->nullable();
-            $table->string('numero')->nullable();
-            $table->timestamps();
-            $table->index('id', 'id');
         });
     }
 

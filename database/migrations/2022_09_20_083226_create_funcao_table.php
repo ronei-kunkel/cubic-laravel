@@ -16,8 +16,6 @@ class CreateFuncaoTable extends Migration
         Schema::create('funcao', function (Blueprint $table) {
             $table->id()->unsigned();
             $table->string('nome'); // ['morador', 'dono', 'zelador', 'sindico', 'terceirizado', 'administrador']
-            $table->timestamps();
-            $table->index('id', 'id');
         });
     }
 

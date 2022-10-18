@@ -1,11 +1,12 @@
 <?php
 
 use App\Models\Construcao;
+use App\Models\RuaInterna;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateApartamentoTable extends Migration
+class CreateConstrucaoRuaInternaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +15,9 @@ class CreateApartamentoTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartamento', function (Blueprint $table) {
-            $table->id()->unsigned();
-            $table->string('numero');
-            $table->string('andar');
+        Schema::create('construcao_rua_interna', function (Blueprint $table) {
             $table->foreignIdFor(Construcao::class)->constrained('construcao')->default(0);
+            $table->foreignIdFor(RuaInterna::class)->constrained('rua_interna')->default(0);
         });
     }
 
@@ -29,6 +28,6 @@ class CreateApartamentoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartamento');
+        Schema::dropIfExists('construcao_rua_interna');
     }
 }
