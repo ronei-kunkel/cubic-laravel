@@ -110,8 +110,8 @@ return [
     'same'                 => 'Os campos :attribute e :other devem corresponder.',
     'size'                 => [
         'numeric' => 'O campo :attribute deve ser :size.',
-        'file'    => 'O campo :attribute deve ser :size kilobytes.',
-        'string'  => 'O campo :attribute deve ser :size caracteres.',
+        'file'    => 'O campo :attribute deve ter :size kilobytes.',
+        'string'  => 'O campo :attribute deve ter :size caracteres.',
         'array'   => 'O campo :attribute deve conter :size itens.',
     ],
     'starts_with'          => 'O campo :attribute deve começar com um dos seguintes valores: :values',

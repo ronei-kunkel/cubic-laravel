@@ -15,6 +15,7 @@ class CreateCondominioTable extends Migration
     {
         Schema::create('condominio', function (Blueprint $table) {
             $table->id()->unsigned();
+            $table->string('nome');
             $table->string('cnpj')->unique();
             $table->string('cep');
             $table->string('estado');

@@ -17,9 +17,9 @@ class CreateConstrucaoUsuarioFuncaoTable extends Migration
     public function up()
     {
         Schema::create('construcao_usuario_funcao', function (Blueprint $table) {
-            $table->foreignIdFor(Construcao::class)->constrained('construcao')->default(0);
-            $table->foreignIdFor(Usuario::class)->constrained('usuario')->default(0);
-            $table->foreignIdFor(Funcao::class)->constrained('funcao')->default(0);
+            $table->foreignIdFor(Construcao::class)->constrained('construcao')->onDelete('cascade');
+            $table->foreignIdFor(Usuario::class)->constrained('usuario')->onDelete('cascade');
+            $table->foreignIdFor(Funcao::class)->constrained('funcao')->onDelete('cascade');
         });
     }
 

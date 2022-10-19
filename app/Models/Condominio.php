@@ -13,6 +13,18 @@ class Condominio extends Model
 
     public $timestamps = false;
 
+    protected $fillable = [
+        'nome',
+        'cnpj',
+        'cep',
+        'estado',
+        'cidade',
+        'bairro',
+        'rua',
+        'numero',
+        'complemento'
+    ];
+
     /**
      * Ruas que o condominio possui
      *

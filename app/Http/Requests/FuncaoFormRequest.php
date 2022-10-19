@@ -28,7 +28,7 @@ class FuncaoFormRequest extends FormRequest
                 'required',
                 'string',
                 'min:3'
-                ],
+            ],
         ];
     }
 }

@@ -17,9 +17,9 @@ class CreateApartamentoUsuarioFuncaoTable extends Migration
     public function up()
     {
         Schema::create('apartamento_usuario_funcao', function (Blueprint $table) {
-            $table->foreignIdFor(Apartamento::class)->constrained('apartamento')->default(0);
-            $table->foreignIdFor(Usuario::class)->constrained('usuario')->default(0);
-            $table->foreignIdFor(Funcao::class)->constrained('funcao')->default(0);
+            $table->foreignIdFor(Apartamento::class)->constrained('apartamento')->onDelete('cascade');
+            $table->foreignIdFor(Usuario::class)->constrained('usuario')->onDelete('cascade');
+            $table->foreignIdFor(Funcao::class)->constrained('funcao')->onDelete('cascade');
         });
     }
 
