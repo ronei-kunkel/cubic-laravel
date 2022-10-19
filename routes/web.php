@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CondominioController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\FuncaoController;
 use App\Http\Controllers\RuaController;
@@ -26,4 +27,7 @@ Route::resource('funcao', FuncaoController::class)
   ->except(['show']);
 
 Route::resource('rua', RuaController::class)
+  ->except(['show']);
+
+Route::resource('condominio', CondominioController::class)
   ->except(['show']);

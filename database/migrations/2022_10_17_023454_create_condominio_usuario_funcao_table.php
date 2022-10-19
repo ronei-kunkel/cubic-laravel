@@ -17,9 +17,9 @@ class CreateCondominioUsuarioFuncaoTable extends Migration
     public function up()
     {
         Schema::create('condominio_usuario_funcao', function (Blueprint $table) {
-            $table->foreignIdFor(Condominio::class)->constrained('condominio')->default(0);
-            $table->foreignIdFor(Usuario::class)->constrained('usuario')->default(0);
-            $table->foreignIdFor(Funcao::class)->constrained('funcao')->default(0);
+            $table->foreignIdFor(Condominio::class)->constrained('condominio')->onDelete('cascade');
+            $table->foreignIdFor(Usuario::class)->constrained('usuario')->onDelete('cascade');
+            $table->foreignIdFor(Funcao::class)->constrained('funcao')->onDelete('cascade');
         });
     }
 

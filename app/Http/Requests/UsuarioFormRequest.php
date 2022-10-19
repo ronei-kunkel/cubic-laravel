@@ -29,17 +29,17 @@ class UsuarioFormRequest extends FormRequest
                 'required',
                 'string',
                 'min:2'
-                ],
+            ],
             'rg' => [
                 'required',
-                'numeric',
-                'digits:10',
+                'string',
+                'size:10',
                 !is_null($this->usuario) ? Rule::unique('usuario')->ignore($this->usuario->id) : 'unique:usuario,rg'
             ],
             'cpf' => [
                 'required',
-                'numeric',
-                'digits:11',
+                'string',
+                'size:11',
                 !is_null($this->usuario) ? Rule::unique('usuario')->ignore($this->usuario->id) : 'unique:usuario,cpf'
             ],
             'email' => [
@@ -50,8 +50,8 @@ class UsuarioFormRequest extends FormRequest
             ],
             'telefone' => [
                 'required',
-                'numeric',
-                'digits:11',
+                'string',
+                'size:11',
                 !is_null($this->usuario) ? Rule::unique('usuario')->ignore($this->usuario->id) : 'unique:usuario,telefone'
             ],
             'senha' => [

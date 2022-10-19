@@ -17,7 +17,7 @@ class CreateRuaTable extends Migration
         Schema::create('rua', function (Blueprint $table) {
             $table->id()->unsigned();
             $table->string('nome');
-            $table->foreignIdFor(Condominio::class)->constrained('condominio')->default(0);
+            $table->foreignIdFor(Condominio::class)->constrained('condominio')->onDelete('cascade');
         });
     }
 

@@ -21,7 +21,7 @@ class CreateConstrucaoTable extends Migration
             $table->enum('tipo', ['predio', 'casa', 'salao', 'sala', 'deposito', 'almoxarifado']);
             $table->string('numero_interno');
             $table->integer('quantidade_andar')->unsigned();
-            $table->foreignIdFor(Condominio::class)->constrained('condominio')->default(0);
+            $table->foreignIdFor(Condominio::class)->constrained('condominio')->onDelete('cascade');
         });
     }
 

@@ -28,7 +28,7 @@ class RuaFormRequest extends FormRequest
                 'required',
                 'string',
                 'min:1'
-                ],
+            ],
             'condominio_id' => [
                 'required',
                 'numeric',

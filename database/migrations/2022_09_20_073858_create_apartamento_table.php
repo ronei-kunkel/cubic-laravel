@@ -18,7 +18,7 @@ class CreateApartamentoTable extends Migration
             $table->id()->unsigned();
             $table->string('numero');
             $table->string('andar');
-            $table->foreignIdFor(Construcao::class)->constrained('construcao')->default(0);
+            $table->foreignIdFor(Construcao::class)->constrained('construcao')->onDelete('cascade');
         });
     }
 
