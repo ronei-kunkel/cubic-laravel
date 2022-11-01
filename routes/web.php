@@ -4,6 +4,7 @@ use App\Http\Controllers\CondominioController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\FuncaoController;
 use App\Http\Controllers\RuaController;
+use App\Http\Controllers\EntrypointController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 /**
  * O método resource permite que eu use a convenção de mapeamento de rotas para actions do laravel
  */
+Route::resource('/', EntrypointController::class)
+  ->only(['index']);
+
 Route::resource('usuario', UsuarioController::class)
   ->except(['show']);
 
