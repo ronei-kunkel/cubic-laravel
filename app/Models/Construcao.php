@@ -13,6 +13,15 @@ class Construcao extends Model
 
     public $timestamps = false;
 
+    protected $fillable = [
+        'nome',
+        'tipo',
+        'numero_interno',
+        'quantidade_andar',
+        'condominio_id',
+        'rua_id'
+    ];
+
     /**
      * Apartamentos que a construção possui
      *

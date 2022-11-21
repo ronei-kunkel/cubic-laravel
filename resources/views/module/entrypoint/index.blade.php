@@ -14,6 +14,9 @@
     <x-module.rua.menu />
   </div>
   <div class="col-6">
+    <x-module.construcao.menu />
+  </div>
+  <div class="col-6">
     <x-module.usuario.menu />
   </div>
   <div class="col-6">
